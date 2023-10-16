@@ -26,12 +26,12 @@ export default class Product implements ProductInterface {
 
   changeName(name: string): void {
     this._name = name;
-    this.validate();
+    // this.validate();
   }
 
   changePrice(price: number): void {
     this._price = price;
-    this.validate();
+    // this.validate();
   }
 
   validate(): boolean {

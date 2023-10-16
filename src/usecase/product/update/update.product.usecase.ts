@@ -15,7 +15,7 @@ export default class UpdateProductUseCase {
   ): Promise<OutputUpdateProductDto> {
     const product = await this.ProductRepository.find(input.id);
     product.changeName(input.name);
-    product.changePrice(2200);
+    product.changePrice(input.price);
     await this.ProductRepository.update(product);
 
     return {
