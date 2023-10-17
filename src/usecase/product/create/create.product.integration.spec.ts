@@ -57,7 +57,7 @@ describe("Test create product use case", () => {
     product.changeName("Notebook");
 
     await expect(productCreateUseCase.execute(product)).rejects.toThrow(
-      "Price must be greater than zero"
+      "product: price must be greater than or equal to 0"
     );
   });
 });
