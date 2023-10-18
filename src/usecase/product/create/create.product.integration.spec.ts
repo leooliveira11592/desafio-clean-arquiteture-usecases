@@ -44,8 +44,8 @@ describe("Test create product use case", () => {
 
     product.changeName("");
 
-    await expect(productCreateUseCase.execute(product)).rejects.toThrow(
-      "Name is required"
+    await expect(productCreateUseCase.execute(product)).rejects.toThrowError(
+      "product: Name is required"
     );
   });
 
@@ -56,8 +56,20 @@ describe("Test create product use case", () => {
     product.changePrice(-1);
     product.changeName("Notebook");
 
-    await expect(productCreateUseCase.execute(product)).rejects.toThrow(
-      "product: price must be greater than or equal to 0"
+    await expect(productCreateUseCase.execute(product)).rejects.toThrowError(
+      "product: Price must be greater than zero"
+    );
+  });
+
+  it("should throw error when name is empty and price is smaller than zero", () => {
+    const productRepository = new ProductRepository();
+    const productCreateUseCase = new CreateProductUseCase(productRepository);
+    
+    product.changePrice(-1);
+    product.changeName("");
+
+    expect(productCreateUseCase.execute(product)).rejects.toThrowError(
+      "product: Name is required,product: Price must be greater than zero"
     );
   });
 });
