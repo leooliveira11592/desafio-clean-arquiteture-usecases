@@ -16,7 +16,7 @@ describe("Product unit tests", () => {
   it("should throw error when name, price and id are empty", () => {
     expect(() => {
       let product = new Product("", "", -1);
-    }).toThrowError("product: Id is required,product: Name is required,product: Price must be greater than zero");
+    }).toThrow("product: Id is required,product: Name is required,product: Price must be greater than zero");
   });
 
   it("should throw error when price is less than zero", () => {

@@ -42,12 +42,11 @@ export default class Product extends Entity implements ProductInterface {
     //this.validate();
   }
 
-  /*
   validate() {
     ProductValidatorFactory.create().validate(this);
   }
-  */
   
+  /*
   validate(): boolean {
 
     var messageErrorAccumulated:string = "";
@@ -82,4 +81,5 @@ export default class Product extends Entity implements ProductInterface {
 
     return true;
   }
+  */
 }
